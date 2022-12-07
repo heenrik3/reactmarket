@@ -20,4 +20,4 @@
 
 [Acesse Aqui](www.google.com)
 
-![!preview img](/preview.png)
+![!preview img](/src/preview.png)
