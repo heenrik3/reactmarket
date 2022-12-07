@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap')
+
+@mixin default-border
+    border: 2px solid #404040
+
+@mixin default-border-radius
+    border-radius: 15px
+
+@mixin default-box-shadow
+    box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.25)
+
+@mixin default-gap
+    gap: 2rem
+
+@mixin default-padding
+    padding: 2rem
+
+@mixin medium-padding
+    padding: 1.5rem 2rem    
+
+@mixin default-linear-gradient
+    // background-image: linear-gradient(to right, #6aeb4e, #89ee42, #a4f137, #bdf32c, #d6f523, #ccf93e, #c3fc53, #baff65, #91ff90, #6dffb8, #58ffd9, #5ffbf1)
+    // background: #fca311
+    // background: #2ec4b6
+    // background-image: linear-gradient(to right, #fca311, #2ec4b6)
+    background-image: linear-gradient(to right, #FC466B, #3F5EFB)
+
+@mixin respond($bp)
+    @if $bp == phone
+        @media only screen and ( max-width: 37.5em )
+            @content
+    @if $bp == tab-port
+        @media only screen and ( max-width: 56.25em )
+            @content
+    @if $bp == tab-land
+        @media only screen and ( max-width: 75em )
+            @content
+    @if $bp == big-desktop
+        @media only screen and ( min-width: 112.5em )
+            @content
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+html
+    font-size: 62.5%
+
+    @include respond(tab-land)
+        font-size: 56.25%
+    @include respond(tab-port)
+        font-size: 50%
+
+a
+    color: inherit
+    text-decoration: none
+
+ul
+    list-style: none
+    
+.app
+    min-height: 100vh
+    margin-bottom: 2rem
+    font-family: 'Poppins', sans-serif
+    font-size: 1.6rem
+
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    @include default-gap
+
+
+.header
+    top: 0
+    width: 100%
+    @include default-padding
+    @include default-linear-gradient
+    position: fixed
+    z-index: 2
+
+    color: white
+    
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    &__logo
+        font-size: 3rem
+        font-weight: bold
+
+    &__nav
+        .btn
+            color: black
+            background-color: white
+
+
+.products, .product
+    margin-top: 10rem
+
+.products
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: auto
+    @include default-gap
+
+    @include respond(tab-land)
+        width: 95%
+        grid-template-columns: 1fr 1fr
+    
+    @include respond(tab-port)
+        grid-template-columns: 1fr
+
+.product
+    width: 70rem
+    @include default-padding
+    @include default-border-radius
+    @include default-box-shadow
+    position: relative
+
+    display: flex
+    flex-direction: column
+    @include default-gap
+
+    @include respond(tab-land)
+        width: 95%
+        
+
+    &__back
+        margin: 2rem
+        padding: 1rem 2rem
+        position: absolute
+        z-index: 1
+        transition: .2s
+
+        background-color: white
+        @include default-border-radius
+        @include default-box-shadow
+
+        display: flex
+        align-items: center
+        justify-content: center
+
+        &:active
+            transform: translateY(5px)
+            box-shadow: 0px 0px 2px rgba(0, 0, 0, 0%)
+
+    
+    &__picture
+        height: 30rem
+        @include default-border-radius
+        position: relative
+        overflow: hidden
+
+        &::before
+            content: attr(data)
+            height: 40%
+            width: 100%
+            bottom: 0
+            background: linear-gradient(0deg, rgba(black,.5) 0%, rgba(255,255,255,0) 100%)
+            position: absolute
+            color: white
+            font-size: 4rem
+            font-weight: bold
+            padding-left: 2rem
+
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+
+        & img
+            height: 30rem
+            width: 100%
+            object-fit: cover
+    
+    &__name
+        font-size: 4rem
+        font-weight: normal
+
+        display: flex
+        align-items: center
+        justify-content: center
+    
+    &__details
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: auto
+        place-items: center
+
+        @include default-gap
+
+    &__link
+        @include default-padding
+        @include default-border-radius
+        @include default-linear-gradient
+
+        color: white
+        font-weight: bold
+
+        display: flex
+        align-items: center
+        justify-content: center
+        transition: .2s
+
+        &:hover
+            transform: scale(1.05)
+
+    &__marker
+        height: 10rem
+        width: 10rem
+        border: 5px solid white
+        border-radius: 50%
+        @include default-linear-gradient
+        @include default-box-shadow
+
+        position: absolute
+        right: 0
+        transform: translate(5rem, -2rem) rotate(-15deg)
+
+        color: white
+        font-weight: bold
+
+        display: flex
+        align-items: center
+        justify-content: center
+
+        @include respond(tab-land)
+            transform: translate(-15px, 0) rotate(-15deg)
+
+
+    &__details, &__description
+        @include default-padding
+        background-color: lighten(lightgray, 13%)
+        @include default-border-radius
+
+.card
+    @include default-padding
+    background-color: white
+    @include default-border-radius
+    @include default-box-shadow
+
+    display: flex
+    flex-direction: column
+
+    &--product
+        width: 35rem
+        transition: .2s
+
+        display: flex
+        flex-direction: column
+        @include default-gap
+
+        &:hover
+            transform: scale(105%)
+        
+        @include respond(tab-land)
+            width: 100%
+
+    &__picture
+        @include default-border-radius
+
+        display: flex
+        align-items: center
+        flex-direction: column
+        overflow: hidden
+
+        & img
+            height: 20rem
+            width: 100%
+            object-fit: cover
+
+    & span
+        font-weight: bold
+        text-transform: uppercase
+
+    &__actions
+        color: white
+        flex: 1
+
+        display: flex
+        align-items: flex-end
+        justify-content: flex-end
+
+        & .btn
+            background-color: crimson
+            // @include default-linear-gradient
+
+.btn
+    padding: 1rem 2rem
+    font-weight: bold
+    @include default-border-radius
+    @include default-box-shadow
+    
+
+    display: flex
+    align-items: center
+    justify-content: center
+
+
+.organic
+    @include default-linear-gradient
+    background-size: 100%
+    -webkit-background-clip: text
+    -moz-background-clip: text
+    -webkit-text-fill-color: transparent 
+    -moz-text-fill-color: transparent
+
+.center
+    text-align: center
+
+.page
+    @include default-padding
+    flex:1
+
+    display: flex
+    flex-direction: column
+    justify-content: center
+    @include default-gap
+
+$offset: 187
+$duration: 1.4s
+
+.spinner
+  animation: rotator $duration linear infinite
+
+
+@keyframes rotator
+  0% 
+    transform: rotate(0deg) 
+  100% 
+    transform: rotate(270deg) 
+
+
+.path
+  stroke-dasharray: $offset
+  stroke-dashoffset: 0
+  transform-origin: center
+  animation: dash $duration ease-in-out infinite, colors ($duration*4) ease-in-out infinite
+
+
+@keyframes colors
+  0% 
+    stroke: #4285F4 
+  25% 
+    stroke: #DE3E35 
+  50% 
+    stroke: #F7C223 
+  75% 
+    stroke: #1B9A59 
+  100% 
+    stroke: #4285F4 
+
+
+@keyframes dash
+ 0% 
+    stroke-dashoffset: $offset 
+ 50%
+   stroke-dashoffset: $offset/4
+   transform: rotate(135deg)
+ 
+ 100%
+   stroke-dashoffset: $offset
+   transform: rotate(450deg)
+ 
