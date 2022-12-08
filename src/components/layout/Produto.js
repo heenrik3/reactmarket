@@ -14,7 +14,8 @@ function Produto(props) {
       </span>
 
       <div className="card__actions">
-        <Button link={`/${produto.slug}`}>Detalhes</Button>
+        <span>R${produto.price}</span>
+        <Button link={`/${produto.slug}`}>Comprar</Button>
       </div>
     </div>
   )

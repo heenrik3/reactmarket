@@ -50,7 +50,7 @@ function ProdutoDetail() {
         <span>🌎 {product.from}</span>
         <span>🧾 {product.nutrients}</span>
         <span>📦 {product.quantity}</span>
-        <span>🏷 {product.price}</span>
+        <span>🏷 R$ {product.price}</span>
       </div>
 
       <Link to="#" className="product__link">
