@@ -19,8 +19,8 @@ function Produtos() {
 
         setLoading(false)
         setProducts(
-          data.data.products.map((item) => (
-            <Produto produto={item} key={item.id} />
+          data.data.products.map((item, index) => (
+            <Produto produto={item} key={index} />
           ))
         )
       } catch (error) {

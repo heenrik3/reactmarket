@@ -20,4 +20,4 @@
 
 [Acesse Aqui](https://reactmarket-seven.vercel.app/)
 
-![!preview img](/src/preview.png)
+![!preview img](https://i.imgur.com/qQVkkfW.png)
