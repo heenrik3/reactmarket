@@ -4,6 +4,8 @@ import Produto from '../components/layout/Produto.js'
 import Spinner from '../components/ui/Spinner.js'
 
 function Produtos() {
+  document.title = 'ReactMarket'
+
   const [isLoading, setLoading] = useState(true)
   const [products, setProducts] = useState([])
 
