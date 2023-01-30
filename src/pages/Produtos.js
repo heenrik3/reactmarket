@@ -19,9 +19,13 @@ function Produtos() {
 
         const data = await res.json()
 
+        console.log(data)
+
         setLoading(false)
         setProducts(
-          data.data.map((item, index) => <Produto produto={item} key={index} />)
+          data.data.data.map((item, index) => (
+            <Produto produto={item} key={index} />
+          ))
         )
       } catch (error) {
         console.log(error)

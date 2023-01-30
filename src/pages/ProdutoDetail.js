@@ -18,7 +18,7 @@ function ProdutoDetail() {
         const data = await res.json()
 
         setLoading(false)
-        setProduct(data.data)
+        setProduct(data.data[0])
       }
       fetchData()
     } catch (error) {
