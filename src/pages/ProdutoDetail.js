@@ -11,7 +11,7 @@ function ProdutoDetail() {
     try {
       const fetchData = async () => {
         const res = await fetch(
-          `https://spotless-underwear-fly.cyclic.app/products/${id}`
+          `https://concerned-newt-flip-flops.cyclic.app/react-market/${id}`
         )
         if (!res.ok) return
 
