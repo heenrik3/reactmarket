@@ -21,9 +21,7 @@ function Produtos() {
 
         setLoading(false)
         setProducts(
-          data.data.products.map((item, index) => (
-            <Produto produto={item} key={index} />
-          ))
+          data.data.map((item, index) => <Produto produto={item} key={index} />)
         )
       } catch (error) {
         console.log(error)
