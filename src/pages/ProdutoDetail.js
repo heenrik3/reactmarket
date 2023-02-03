@@ -5,7 +5,7 @@ import Spinner from '../components/ui/Spinner'
 function ProdutoDetail() {
   const { id } = useParams()
   const [isLoading, setLoading] = useState(true)
-  const [product, setProduct] = useState([])
+  const [product, setProduct] = useState({})
 
   useEffect(() => {
     try {
@@ -13,12 +13,11 @@ function ProdutoDetail() {
         const res = await fetch(
           `https://concerned-newt-flip-flops.cyclic.app/react-market/${id}`
         )
-        if (!res.ok) return
 
         const data = await res.json()
 
         setLoading(false)
-        setProduct(data.data[0])
+        setProduct(data.data.data[0])
       }
       fetchData()
     } catch (error) {

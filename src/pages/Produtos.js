@@ -15,11 +15,8 @@ function Produtos() {
         const res = await fetch(
           'https://concerned-newt-flip-flops.cyclic.app/react-market'
         )
-        if (!res.ok) return
 
         const data = await res.json()
-
-        console.log(data)
 
         setLoading(false)
         setProducts(
